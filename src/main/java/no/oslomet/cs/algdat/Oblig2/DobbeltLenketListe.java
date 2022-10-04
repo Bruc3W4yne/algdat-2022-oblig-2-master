@@ -38,9 +38,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private int endringer;         // antall endringer i listen
 
     public static void main(String[] args) {
-        String[] s = {"Ole", null, "Per", "Kari", null};
-        Liste<String> liste = new DobbeltLenketListe<>(s);
-        System.out.println(liste.antall() + " " + liste.tom());
+        Character[] c = {'A','B','C','D','E','F','G','H','I','J',};
+        DobbeltLenketListe<Character> liste = new DobbeltLenketListe<>(c);
+        System.out.println(liste.subliste(3,8));  // [D, E, F, G, H]
+        System.out.println(liste.subliste(5,5));  // []
+        System.out.println(liste.subliste(8,liste.antall()));  // [I, J]
     }
 
     ////// Oppgave 1 //////
@@ -91,18 +93,122 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException();
+        StringBuilder ts = new StringBuilder();
+        ts.append("[");
+
+        if (!tom()) {
+            Node<T> node = hode;
+            ts.append(node.verdi);
+            node = node.neste;
+
+            while (node != null) {
+                ts.append(",").append(" ").append(node.verdi);
+                node = node.neste;
+            }
+        }
+        ts.append("]");
+        return ts.toString();
     }
 
-    public Liste<T> subliste(int fra, int til) {
-        throw new UnsupportedOperationException();
-    }
+    public String omvendtString() {
+        StringBuilder os = new StringBuilder();
+        os.append("[");
 
+        if (!tom()) {
+            Node<T> node = hale;
+            os.append(node.verdi);
+            node = node.forrige;
+
+            while (node != null) {
+                os.append(",").append(" ").append(node.verdi);
+                node = node.forrige;
+            }
+        }
+        os.append("]");
+        return os.toString();
+    }
 
     @Override
     public boolean leggInn(T verdi) {
+        Objects.requireNonNull(verdi, "Null-verdi ikke tillatt");
+
+        Node<T> nodeTom = new Node<T>(verdi);
+        Node<T> node = new Node<T>(verdi, hale, null);
+
+        if (tom()) {
+            hode = nodeTom;
+            hale = hode;
+            antall++;
+        } else {
+            hale = hale.neste = node;
+            antall++;
+            endringer++;
+        }
+        return true;
+    }
+
+    ////// Oppgave 3 //////
+
+    private Node<T> finnNode(int indeks) {
+
+        Node<T> nodeIndex;
+
+        if (indeks < antall / 2) {
+            nodeIndex = hode;
+            for (int i = 0; i < indeks; i++) {
+                nodeIndex = nodeIndex.neste;
+            }
+        } else {
+            nodeIndex = hale;
+            for (int i = antall - 1; i > indeks; i--) {
+                nodeIndex = nodeIndex.forrige;
+            }
+        }
+        return nodeIndex;
+    }
+
+    @Override
+    public T hent(int indeks) {
+        indeksKontroll(indeks, false);
+
+        return finnNode(indeks).verdi;
+    }
+
+    @Override
+    public T oppdater(int indeks, T nyverdi) {
+        indeksKontroll(indeks, false);
+
+        Objects.requireNonNull(nyverdi, "Null verdi er ikke tilatt");
+
+        Node<T> node = finnNode(indeks);
+
+        T temp = node.verdi;
+        node.verdi = nyverdi;
+        endringer++;
+
+        return temp;
+    }
+
+    public Liste<T> subliste(int fra, int til) {
+        fratilKontroll(antall, fra, til);
+
+        Liste<T> subliste = new DobbeltLenketListe<T>();
+        Node<T> node = finnNode(fra);
+
+        for (int i = fra; i < til; i++) {
+            subliste.leggInn(node.verdi);
+            node = node.neste;
+        }
+        return subliste;
+    }
+
+    ////// Oppgave 4 //////
+    @Override
+    public int indeksTil(T verdi) {
         throw new UnsupportedOperationException();
     }
+
+
 
     @Override
     public void leggInn(int indeks, T verdi) {
@@ -114,20 +220,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         throw new UnsupportedOperationException();
     }
 
-    @Override
-    public T hent(int indeks) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public int indeksTil(T verdi) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public T oppdater(int indeks, T nyverdi) {
-        throw new UnsupportedOperationException();
-    }
 
     @Override
     public boolean fjern(T verdi) {
@@ -144,10 +236,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         throw new UnsupportedOperationException();
     }
 
-
-    public String omvendtString() {
-        throw new UnsupportedOperationException();
-    }
 
     @Override
     public Iterator<T> iterator() {
@@ -193,6 +281,17 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
         throw new UnsupportedOperationException();
     }
+
+    //hjelpemetoder
+    private void fratilKontroll (int antall, int fra, int til) {
+        if (fra < 0 || til > antall) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (fra > til) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 
 } // class DobbeltLenketListe
 

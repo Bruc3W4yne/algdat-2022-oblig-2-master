@@ -4,9 +4,7 @@ package no.oslomet.cs.algdat.Oblig2;
 ////////////////// class DobbeltLenketListe //////////////////////////////
 
 
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.Objects;
+import java.util.*;
 
 
 public class DobbeltLenketListe<T> implements Liste<T> {
@@ -36,14 +34,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private Node<T> hale;          // peker til den siste i listen
     private int antall;            // antall noder i listen
     private int endringer;         // antall endringer i listen
-
-    public static void main(String[] args) {
-        Character[] c = {'A','B','C','D','E','F','G','H','I','J',};
-        DobbeltLenketListe<Character> liste = new DobbeltLenketListe<>(c);
-        System.out.println(liste.subliste(3,8));  // [D, E, F, G, H]
-        System.out.println(liste.subliste(5,5));  // []
-        System.out.println(liste.subliste(8,liste.antall()));  // [I, J]
-    }
 
     ////// Oppgave 1 //////
     public DobbeltLenketListe() {
@@ -205,45 +195,162 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     ////// Oppgave 4 //////
     @Override
     public int indeksTil(T verdi) {
-        throw new UnsupportedOperationException();
-    }
+        if (verdi == null) return -1;
 
+        Node<T> indeks = hode;
 
+        for (int i = 0; i< antall; i++, indeks = indeks.neste)
+        {
+            if (indeks.verdi.equals(verdi)) return i;
+        }
 
-    @Override
-    public void leggInn(int indeks, T verdi) {
-        throw new UnsupportedOperationException();
+        return -1;
     }
 
     @Override
     public boolean inneholder(T verdi) {
-        throw new UnsupportedOperationException();
+        if (indeksTil(verdi) != -1) {
+            return true;
+        } else return false;
     }
 
+    ////// Oppgave 5 //////
 
     @Override
-    public boolean fjern(T verdi) {
-        throw new UnsupportedOperationException();
+    public void leggInn(int indeks, T verdi) {
+        Objects.requireNonNull(verdi, "Verdi kan ikke være null");
+        //fratilKontroll(antall, indeks, antall); Gir IllegalArgumentException istedenfor, hvis ikke hadde jeg brukt denne istedenfor.
+
+        if (indeks < 0) {
+            throw new IndexOutOfBoundsException(indeks + " er mindre en null");
+        } else if (indeks > antall) {
+            throw new IndexOutOfBoundsException(indeks + " er større enn antall " + antall);
+        }
+
+        if (antall == 0) {
+            hode = hale = new Node<T>(verdi, null, null);
+        } else if (indeks == 0) {
+            hode = new Node<T>(verdi, null, hode);
+            hode.neste.forrige = hode;
+        } else if (indeks == antall) {
+            hale = new Node<T>(verdi, hale, null);
+            hale.forrige.neste = hale;
+        } else {
+            Node<T> node = hode;
+
+            for (int i = 0; i < indeks; i++) {
+                node = node.neste;
+            }
+
+            node = new Node<T>(verdi, node.forrige, node);
+            node.neste.forrige = node.forrige.neste = node;
+        }
+        antall++;
+        endringer++;
     }
+
+    ////// Oppgave 6 //////
 
     @Override
     public T fjern(int indeks) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks, false);
+
+        Node<T> node = hode;
+        T verdi;
+
+        if (indeks == 0) {
+            verdi = node.verdi;
+
+            if (node.neste != null) {
+                hode = node.neste;
+                hode.forrige = null;
+            } else {
+                hode = null;
+                hale = null;
+            }
+        } else if (indeks == antall - 1) {
+            node = hale;
+            verdi = hale.verdi;
+
+            hale = node.forrige;
+            hale.neste = null;
+        } else {
+            for (int i = 0; i < indeks; i++) {
+                node = node.neste;
+            }
+
+            verdi = node.verdi;
+
+            node.forrige.neste = node.neste;
+            node.neste.forrige = node.forrige;
+        }
+        antall--;
+        endringer++;
+        return verdi;
+    }
+
+    @Override
+    public boolean fjern(T verdi) {
+
+        if(verdi == null) {
+            return false;
+        }
+
+        Node<T> node = hode;
+
+        if (verdi.equals(node.verdi)) {
+            if(node.neste != null) {
+                hode = node.neste;
+                hode.forrige = null;
+            } else {
+                hode = null;
+                hale = null;
+            }
+            antall--;
+            endringer++;
+            return true;
+        }
+
+        node = hale;
+        if (verdi.equals(node.verdi)) {
+            hale = node.forrige;
+            hale.neste = null;
+            antall--;
+            endringer++;
+            return true;
+        }
+
+        node = hode.neste;
+        for (int i = 0; node != null; node = node.neste) {
+            if (verdi.equals(node.verdi)) {
+                node.forrige.neste = node.neste;
+                node.neste.forrige = node.forrige;
+                antall--;
+                endringer++;
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public void nullstill() {
-        throw new UnsupportedOperationException();
+        int temp = antall;
+        for (int i = 0; i < temp ; i++) {
+            fjern(0);
+        }
     }
 
 
     @Override
     public Iterator<T> iterator() {
-        throw new UnsupportedOperationException();
+        return new DobbeltLenketListeIterator();
     }
 
     public Iterator<T> iterator(int indeks) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks, false);
+
+        return new DobbeltLenketListeIterator(indeks);
     }
 
     private class DobbeltLenketListeIterator implements Iterator<T> {
@@ -258,7 +365,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
 
         private DobbeltLenketListeIterator(int indeks) {
-            throw new UnsupportedOperationException();
+            denne = finnNode(indeks);
+            fjernOK = false;
+            iteratorendringer = endringer;
         }
 
         @Override
@@ -266,9 +375,22 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             return denne != null;
         }
 
+        ////// Oppgave 8 //////
         @Override
         public T next() {
-            throw new UnsupportedOperationException();
+            if (iteratorendringer != endringer) {
+                throw new ConcurrentModificationException("Endringer er feil");
+            }
+            if (!hasNext()) {
+                throw new NoSuchElementException("Ingen flere igjen i liste");
+            }
+
+            fjernOK = true;
+
+            T temp = denne.verdi;
+            denne = denne.neste;
+
+            return temp;
         }
 
         @Override

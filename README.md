@@ -27,36 +27,10 @@ Vi kan sjekke om listen er tom ved å se om hode (*første posisjon*) er lik ree
 ```java
 return hode == null;
 ```
-- $\color{orange} DobbeltLenketListe(T[] a) $: Dette er konstruktøren vi bruker for å lage en ny instans av klassen DobbeltLenketListe.\
+- $\color{orange} DobbeltLenketListe(T\[\] a) $: Dette er konstruktøren vi bruker for å lage en ny instans av klassen DobbeltLenketListe.\
 Den henter verdier fra tabell *a* og putter de inn i en ny dobbelt lenket liste.\
 Den sørger for at verdiene havner i samme posisjon og at det blir deklarert både et $\color{orange} hode$ og en $\color{orange} hale$\
 \
-Ved hjelp av en *$\color{orange} for-løkke$* sørger vi også for at vi ikke tar med *$\color{purple} null$* verdier og kun reele verdier fra tabell *a*.\
-```java
-public DobbeltLenketListe(T[] a) {
-        Objects.requireNonNull(a, "Tabell a er null!");
+Ved hjelp av en *$\color{orange} for-løkke $* sørger vi også for at vi ikke tar med *$\color{purple} null$* verdier og kun reele verdier fra tabell *a*.\
 
-        int i = 0;
-        for (; i < a.length; i++) {
-            if (a[i] != null) {
-                hode = new Node<>(a[i]);
-                antall++;
-                break;
-            }
-        }
-
-        hale = hode;
-
-        if (hode != null) {
-            i++;
-            for (; i < a.length; i++) {
-                if (a[i] != null) {
-                    hale.neste = new Node<>(a[i], hale, null);
-                    hale = hale.neste;
-                    antall++;
-                }
-            }
-        }
-    }
-```
 

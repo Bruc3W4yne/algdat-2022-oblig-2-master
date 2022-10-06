@@ -202,3 +202,11 @@ Vi setter først fjernOK til true for å markere at vi har fjernet en verdi og o
 - Vi lager så **$\color{orange} \text{DobbeltLenketListeIterator (int indeks)} $**: som setter pekeren *denne* til noden ved gitt *indeks*, setter fjernOK til false (da vi ikke har fjernet noen verdi), og setter iteratorendringer lik endringer.\
 <br>
 - Til slutt gjennstår bare **$\color{orange} \text{Iterator<T> iterator(int indeks)} $**: Denne returnerer en instans av iteratorklassen og vi kan nå iterere over listen, ved hjelp av i.next()
+
+<footer class="footer">Isak Midtvedt 2022</footer>
+<style>
+.footer {
+    display: flex;
+    justify-content: center;
+}
+</style>

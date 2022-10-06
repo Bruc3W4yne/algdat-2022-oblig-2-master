@@ -104,7 +104,11 @@ Det betyr at vi må ha med tester / checks for alle disse tilfellene.\
       ```
       Hvis antall er lik null må det bety at listen ikke har noen verdier ergo er den tom.
 <br>
-<br>
+```java
+      if (antall == 0) {
+          hode = hale = new Node<T>(verdi, null, null);
+      }
+```
 Skal verdien legges først?
   ```java
     if (indeks == 0) {

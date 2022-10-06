@@ -106,7 +106,7 @@ Det betyr at vi må ha med tester / checks for alle disse tilfellene.\
 <br>
 <br>
 Skal verdien legges først?
-  - ```java
+  ```java
     if (indeks == 0) {
         hode = new Node<T>(verdi,h ale, null);
         hale.forrige.neste = hale;
@@ -117,7 +117,7 @@ Skal verdien legges først?
 <br>
 <br>
 Skal verdien legges bakerst?
-  - ```java
+  ```java
     if (indeks == antall) {
         hale = new Node<T>(verdi, node.forrige, null);
         hale.forrige.neste = hale;
@@ -127,7 +127,7 @@ Skal verdien legges bakerst?
     Vi oppdaterer deretter nest siste indeks (hale.forrige.neste = hale sin forrige (nest siste) sin neste (i dette tilfelle hale)) slik at pekere blir korrekt.\
 <br>
 Til slutt må vi sjekke om verdien skal legges imellom to andre verdier.
-  - ```java
+  ```java
     else () {
         for (int i = 0; i < indeks; i++) {
             node = node.neste;

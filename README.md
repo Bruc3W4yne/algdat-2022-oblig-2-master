@@ -204,14 +204,8 @@ Til slutt gjennstår bare **$\color{orange} \text{Iterator<T> iterator(int indek
 
 <html>
 
-<footer>Isak Midtvedt 2022</footer>
+<footer align="center">Isak Midtvedt 2022</footer>
 
-<style>
-footer {
-    display: flex;
-    justify-content: center;
-}
-</style>
 </html>
 
 

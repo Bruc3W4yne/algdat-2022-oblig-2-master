@@ -27,7 +27,7 @@ Vi kan sjekke om listen er tom ved å se om hode (*første posisjon*) er lik ree
 ```java
 return hode == null;
 ```
-- $\color{orange} DobbeltLenketListe(T\[\] a) $: Dette er konstruktøren vi bruker for å lage en ny instans av klassen DobbeltLenketListe.\
+- $\color{orange} DobbeltLenketListe(T [ ] a) $: Dette er konstruktøren vi bruker for å lage en ny instans av klassen DobbeltLenketListe.\
 Den henter verdier fra tabell *a* og putter de inn i en ny dobbelt lenket liste.\
 Den sørger for at verdiene havner i samme posisjon og at det blir deklarert både et $\color{orange} hode$ og en $\color{orange} hale$\
 \

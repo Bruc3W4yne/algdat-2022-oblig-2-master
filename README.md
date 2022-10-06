@@ -202,6 +202,4 @@ Vi lager så **$\color{orange} \text{DobbeltLenketListeIterator (int indeks)} $*
 Til slutt gjennstår bare **$\color{orange} \text{Iterator<T> iterator(int indeks)} $**: Denne returnerer en instans av iteratorklassen og vi kan nå iterere over listen, ved hjelp av i.next()
 
 ## 
-<p align="center">
-  <img width="460" height="300" src="http://www.fillmurray.com/460/300">
-</p>
+<p style="text-align: center">Isak Midvedt 2022</p>

@@ -96,37 +96,37 @@ Her er det et par ting vi må passe på:
 
 Det betyr at vi må ha med tester / checks for alle disse tilfellene.\
 
-- Vi begynner med å sjekke om listen er tom:
-    ```java
-      if (antall == 0) {
-          hode = hale = new Node<T>(verdi, null, null);
-      }
-    ```
-- Hvis antall er lik null må det bety at listen ikke har noen verdier ergo er den tom.\
+Vi begynner med å sjekke om listen er tom:
+```java
+    if (antall == 0) {
+        hode = hale = new Node<T>(verdi, null, null);
+    }
+```
+Hvis antall er lik null må det bety at listen ikke har noen verdier ergo er den tom.\
 <br>
 Skal verdien legges først?
-  ```java
+```java
     if (indeks == 0) {
         hode = new Node<T>(verdi,h ale, null);
         hale.forrige.neste = hale;
     }
-    ```
-    Her sjekker vi først om indeks, altså plassen vi skal legge verdien inn på er lik 0. Hvis den er det så betyr det at den skal inn først.\
-    Vi oppdaterer deretter *hode* til å være vår nye verdi og vi sørger for at *hale* sin forrige (*nest siste verdi*) sin neste er lik *hale*.
+```
+Her sjekker vi først om indeks, altså plassen vi skal legge verdien inn på er lik 0. Hvis den er det så betyr det at den skal inn først.\
+Vi oppdaterer deretter *hode* til å være vår nye verdi og vi sørger for at *hale* sin forrige (*nest siste verdi*) sin neste er lik *hale*.
 <br>
 <br>
 Skal verdien legges bakerst?
-  ```java
+```java
     if (indeks == antall) {
         hale = new Node<T>(verdi, node.forrige, null);
         hale.forrige.neste = hale;
     }
-    ```
-    Her sjekker vi om indeks er lik antall, dvs. at *verdi* skal inn bakerst. Hvis den er det lager vi en ny hale med verdi *verdi* og *forrige* = *hale* og *neste* = null.\
-    Vi oppdaterer deretter nest siste indeks (hale.forrige.neste = hale sin forrige (nest siste) sin neste (i dette tilfelle hale)) slik at pekere blir korrekt.\
+```
+Her sjekker vi om indeks er lik antall, dvs. at *verdi* skal inn bakerst. Hvis den er det lager vi en ny hale med verdi *verdi* og *forrige* = *hale* og *neste* = null.\
+Vi oppdaterer deretter nest siste indeks (hale.forrige.neste = hale sin forrige (nest siste) sin neste (i dette tilfelle hale)) slik at pekere blir korrekt.\
 <br>
 Til slutt må vi sjekke om verdien skal legges imellom to andre verdier.
-  ```java
+```java
     else () {
         for (int i = 0; i < indeks; i++) {
             node = node.neste;
@@ -135,11 +135,11 @@ Til slutt må vi sjekke om verdien skal legges imellom to andre verdier.
         Node<T> nyNode = new Node<T>(verdi, node.forrige, node);
         nyNode.neste.forrige = nyNode.forrige.neste = nyNode;
     }
-    ```
-    Her trenger vi ikke å kjøre en sjekk, da vi vet om denne koden utføres så har alle andre sjekker over ikke vært sant.\
-    Vi begynner først med å iterere over nodene helt til vi kommer til riktig *indeks*\
-    Med en gang vi når riktig indeks setter vi inn en ny node, *nyNode* med riktig *verdi* og setter forrige peker til å være noden rett før og neste peker til å være nåværende node i iterasjonen.\
-    Deretter oppdaterer vi pekere til både forrige og neste node til å være lik *nyNode*
+```
+Her trenger vi ikke å kjøre en sjekk, da vi vet om denne koden utføres så har alle andre sjekker over ikke vært sant.\
+Vi begynner først med å iterere over nodene helt til vi kommer til riktig *indeks*\
+Med en gang vi når riktig indeks setter vi inn en ny node, *nyNode* med riktig *verdi* og setter forrige peker til å være noden rett før og neste peker til å være nåværende node i iterasjonen.\
+Deretter oppdaterer vi pekere til både forrige og neste node til å være lik *nyNode*
 ## Oppgave 6
 **Oppgave 6** Handler om å fjerne elementer fra listen vår. Dette skal gjøres ved hjelp av metoden **T Fjern (int indeks)** som skal ta å fjerne (og returnere) verdien på posisjon *indeks*. Og booleanen **fjern (T verdi)** som skal fjerne *verdi* fra listen og så returnere true.\
 Finnes ikke *verdi* i listen skal den returnere false.

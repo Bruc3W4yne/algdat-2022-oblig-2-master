@@ -12,7 +12,7 @@ Alle oppgaver gjort på egenhånd av undertegnende, i noe sporadisk tempo vel å
 # Oppgavebeskrivelse
 **Oblig 2** tar for seg toveis lister eller bedre kjent som *Dobbelt Lenket Lister.*\
 Navnet kommer av at hvert innlegg i listen peker både til forrige og neste posisjon ergo er de lenket sammen.\
-Dette gjør at vi kan enklere traversere oss igjennom en liste samt at man enkelt kan gå begge veier ( *$\color{orange} node.neste $* og *$\color{orange} node.forrige $* )\
+Dette gjør at vi kan enklere traversere oss igjennom en liste samt at man enkelt kan gå begge veier (*$\color{orange} node neste $* og *$\color{orange} node forrige $*)\
 En dobbelt lenket liste har også fordelen med at det er enklere og allokere og **$\color{orange} re-$**allokere minne. 
 
 ## Oppgave 1

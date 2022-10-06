@@ -35,6 +35,18 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private int antall;            // antall noder i listen
     private int endringer;         // antall endringer i listen
 
+
+    public static void main (String[] args) {
+        DobbeltLenketListe<Integer> liste = new DobbeltLenketListe<>();
+
+        for (int k = 2; k <= 7; k++) {
+            liste.leggInn(k);
+        }
+
+        System.out.println(liste);
+        liste.leggInn(6, 5);
+    }
+
     ////// Oppgave 1 //////
     public DobbeltLenketListe() {
         hode = hale = null;
@@ -209,9 +221,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean inneholder(T verdi) {
-        if (indeksTil(verdi) != -1) {
-            return true;
-        } else return false;
+        return indeksTil(verdi) != -1;
     }
 
     ////// Oppgave 5 //////
@@ -233,6 +243,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             hode = new Node<T>(verdi, null, hode);
             hode.neste.forrige = hode;
         } else if (indeks == antall) {
+
             hale = new Node<T>(verdi, hale, null);
             hale.forrige.neste = hale;
         } else {
@@ -321,7 +332,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
 
         node = hode.neste;
-        for (int i = 0; node != null; node = node.neste) {
+        for (; node != null; node = node.neste) {
             if (verdi.equals(node.verdi)) {
                 node.forrige.neste = node.neste;
                 node.neste.forrige = node.forrige;
@@ -399,10 +410,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
 
     } // class DobbeltLenketListeIterator
-
-    public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
-        throw new UnsupportedOperationException();
-    }
 
     //hjelpemetoder
     private void fratilKontroll (int antall, int fra, int til) {

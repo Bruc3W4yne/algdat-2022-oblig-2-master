@@ -35,18 +35,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private int antall;            // antall noder i listen
     private int endringer;         // antall endringer i listen
 
-
-    public static void main (String[] args) {
-        DobbeltLenketListe<Integer> liste = new DobbeltLenketListe<>();
-
-        for (int k = 2; k <= 7; k++) {
-            liste.leggInn(k);
-        }
-
-        System.out.println(liste);
-        liste.leggInn(6, 5);
-    }
-
     ////// Oppgave 1 //////
     public DobbeltLenketListe() {
         hode = hale = null;

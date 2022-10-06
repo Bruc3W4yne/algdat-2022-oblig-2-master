@@ -203,5 +203,5 @@ Til slutt gjennstår bare **$\color{orange} \text{Iterator<T> iterator(int indek
 
 ## 
 <div>
-  <p align="center">Isak Midtvedt</p>
+  <p align="center">Isak Midtvedt 2022</p>
 </div>

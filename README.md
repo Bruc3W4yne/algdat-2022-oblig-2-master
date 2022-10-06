@@ -202,4 +202,4 @@ Vi lager så **$\color{orange} \text{DobbeltLenketListeIterator (int indeks)} $*
 Til slutt gjennstår bare **$\color{orange} \text{Iterator<T> iterator(int indeks)} $**: Denne returnerer en instans av iteratorklassen og vi kan nå iterere over listen, ved hjelp av i.next()
 
 ## 
-<p style="text-align: center">Isak Midvedt 2022</p>
+$\fancyfoot[C]{Isak Midtvedt}$

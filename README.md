@@ -42,7 +42,7 @@ Ved hjelp av *stringbuilder* og *node.neste*/*node.forrige* kan vi enkelt traver
 
 - **$\color{orange} \mathit{omvendtString} $**: Vi gjør det samme her bare at vi nå må gå gjennom listen baklengs.\
 Dette gjør vi ved å sette nåværende node / *start* node til å være hale istedenfor.\
-Da kan vi enkelt gå bakover ved å benytte oss av *node.forrige* og fortløpende legge til verdiene i **$\color{orange} ts $**\
+Da kan vi enkelt gå bakover ved å benytte oss av *node.forrige* og fortløpende legge til verdiene i **$\color{orange} ts $**
 
 Andre Del av problemet er metoden **$\color{orange} leggInn $**. Denne metoden skal legge inn en gitt verdi *bakerst* i listen og må da også oppdatere ny hale og forrige hale.
 - **$\color{orange} leggInn $**: Her lager vi to nye instanser av **Node**, en for tom liste og en for liste med verdier.\
@@ -58,7 +58,7 @@ Etter dette oppdaterer vi både antall og endringer, da vi har **lagt til** en n
 ## Oppgave 3
 **Oppgave 3** går ut på å lage metoder for å *finne en nodes indeks*, *hente en nodes verdi*, *oppdatere node verdi ved gitt indeks* **OG** en metode for å *returnere en liste ved gitt intervall (fra:til)*\
 Det er altså en god del som må gjøres i oppgave 3. Vi begynner med finnNode
-- **$\color{orange} finnNode $**: Denne metoden skal returnere noden ved gitt indeks. Er indeks mindre enn $\frac{antall, 2}$ skal vi begynne letingen fra hode og gå mot høyre.
+- **$\color{orange} finnNode $**: Denne metoden skal returnere noden ved gitt indeks. Er indeks mindre enn $\{antall\over 2}$ skal vi begynne letingen fra hode og gå mot høyre.
 
 
 

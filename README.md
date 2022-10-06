@@ -65,7 +65,12 @@ Vi begynner først med å lage en node, *nodeIndex* som skal funke som en *place
 Ved å så iterere over listen (enten fra hode --> hale, eller hode <-- hale) kan vi sette *nodeIndex* til å være nåværende node helt til vi kommer til riktig indeks.\
 Dette gjelder både ved søk fra hode eller hale, eneste forskjell er om vi bruker **$\color{orange} node.neste $** eller **$\color{orange} node.forrige $**.
 
-Neste metode vi trenger er **$\color{orange} \text{T hent} $**
+Neste metode vi trenger er:
+- **$\color{orange} \text{T hent} $**: Hent metoden benytter seg av **__finnNode__** og returnerer nodens verdi ved gitt indeks.
+- **$\color{orange} \text{T oppdater} $**: Denne metoden gjør et enkelt bytte ved hjelp av en temp variabel og returnerer så tidligere verdi ved gitt indeks.
+
+Det siste som gjennstår å gjøre nå er å lage subliste metoden, denne metoden skal ta inn et intervall for så å returnere en liste med verdier innefor gitt intervall.
+- **$\color{orange} \text{subliste} $**: Vi sjekker først om intervallet er lovlig, dvs. er $\mathbf{fra} \lt \mathbf{til}$ og om $\mathbf{til} \gt \mathbf{antall}$
 
 
 

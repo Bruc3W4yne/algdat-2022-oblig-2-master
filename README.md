@@ -203,6 +203,7 @@ Til slutt gjennstår bare **$\color{orange} \text{Iterator<T> iterator(int indek
 
 #### 
 <footer class="footer">Isak Midtvedt 2022</footer>
+
 <style>
 .footer {
     display: flex;

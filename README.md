@@ -35,14 +35,25 @@ Ved hjelp av en **$\color{orange} for-løkke $** sørger vi også for at vi ikke
 
 ## Oppgave 2
 **Oppgave 2** tar for seg to ulike problemer; \
-Første del av problemet løser vi ved å lage metodene **$\color{orange} \mathit String toString $** og **$\color{orange} String omvendtString $** \
+Første del av problemet løser vi ved å lage metodene **$\color{orange} \mathit {String toString} $** og **$\color{orange} String omvendtString $** \
 Disse sørger for at vi henter ut verdiene i listen for så å returnere de som en tegnstreng, enten i riktig rekkefølge eller baklengs\
 - **$\color{orange} toString $**: Denne metoden benytter seg av en *stringbuilder* **$\color{orange} ts (toString) $** og dens metode **$\color{orange} .append $**\
 Ved hjelp av *stringbuilder* og *node.neste*/*node.forrige* kan vi enkelt traversere igjennom listen (så sant den ikke er tom) og legge til verdien ved nåværende node inn i **$\color{orange} ts $**\
-\
-Det samme gjelder for **$\color{orange} \mathit omvendtString $**, bare at vi nå må gå gjennom listen baklengs.\
+
+- **$\color{orange} \mathit{omvendtString} $** Vi gjør det samme her bare at vi nå må gå gjennom listen baklengs.\
 Dette gjør vi ved å sette nåværende node / *start* node til å være hale istedenfor.\
-Da kan vi enkelt gå bakover ved å benytte oss av *node.forrige* og fortløpende legge til verdiene i **$\color{orange} ts $**
+Da kan vi enkelt gå bakover ved å benytte oss av *node.forrige* og fortløpende legge til verdiene i **$\color{orange} ts $**\
+\
+Andre Del av problemet er metoden **$\color{orange} leggInn $**. Denne metoden skal legge inn en gitt verdi *bakerst* i listen og må da også oppdatere ny hale og forrige hale.\
+- **$\color{orange} leggInn $**: Her lager vi to nye instanser av **Node**, en for tom liste og en for liste med verdier.\
+Noden for liste med verdier får da verdien: *verdi* og settes som hale.
+\
+Er listen tom setter vi hode og hale til å være samme node og de får begge samme verdi (T verdi) og pekere (0).\
+\
+Er listen ikke tom setter vi hale til å være lik hale.neste (ergo peker til neste node) som igjen settes lik til vår node med verdi.\
+Dette gjør at vi oppdaterer både **$\color{red} hale(gamle) $** og **$\color{green} hale(ny) $** samtidig og at de peker til riktig node.\
+Etter dette oppdaterer vi både antall og endringer, da vi har **lagt til** en ny verdi samt **endret plass til en gammel**
+
 
 
 

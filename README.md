@@ -58,7 +58,11 @@ Etter dette oppdaterer vi både antall og endringer, da vi har **lagt til** en n
 ## Oppgave 3
 **Oppgave 3** går ut på å lage metoder for å *finne en nodes indeks*, *hente en nodes verdi*, *oppdatere node verdi ved gitt indeks* **OG** en metode for å *returnere en liste ved gitt intervall (fra:til)*\
 Det er altså en god del som må gjøres i oppgave 3. Vi begynner med finnNode
-- **$\color{orange} finnNode $**: Denne metoden skal returnere noden ved gitt indeks. Er indeks mindre enn $\{antall\over 2}$ skal vi begynne letingen fra hode og gå mot høyre.
+- **$\color{orange} finnNode $**: Denne metoden skal returnere noden ved gitt indeks. Er indeks mindre enn $\{antall\over 2}$ skal vi begynne letingen fra hode og gå mot høyre.\
+Hvis ikke skal vi begynne å lete fra hale og gå bakover, mot venstre!\
+Vi begynner først med å lage en node, *nodeIndex* som skal funke som en *placeholder* noden vi leter etter.\
+Ved å så iterere over listen (enten fra hode --> hale, eller hode <-- hale) kan vi sette *nodeIndex* til å være nåværende node helt til vi kommer til riktig indeks.\
+Dette gjelder både ved søk fra hode eller hale, eneste forskjell er om vi bruker **$\color{orange} node.neste $** eller **$\color{orange} node.forrige $**.
 
 
 

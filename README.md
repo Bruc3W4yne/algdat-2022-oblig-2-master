@@ -71,7 +71,7 @@ Neste metode vi trenger er:
 
 Det siste som gjennstår å gjøre nå er å lage subliste metoden, denne metoden skal ta inn et intervall for så å returnere en liste med verdier innefor gitt intervall.
 - **$\color{orange} \text{subliste} $**: Vi sjekker først om intervallet er lovlig, dvs. er $\mathbf{fra} \lt \mathbf{til}$ og om $\mathbf{til} \gt \mathbf{antall}$\
-Hvis indeksKontroll går igjennom så lager vi først en ny liste og en ny node(hode). Vi tar så å itererer over intervallet fra : til og legger inn nye verdier så lenge $\mathbf{i} \lt \mathbf{til}$.\
+Hvis indeksKontroll går igjennom så lager vi først en ny liste og en ny node(hode). Vi tar så å itererer over intervallet fra : til og legger inn nye verdier så lenge $\mathbf{i} \lt \mathbf{til}$.
 
 
 ## Oppgave 4
@@ -105,7 +105,7 @@ Det betyr at vi må ha med tester / checks for alle disse tilfellene.\
       Hvis antall er lik null må det bety at listen ikke har noen verdier ergo er den tom.
 <br>
 <br>
-- Skal verdien legges først?
+Skal verdien legges først?
   - ```java
     if (indeks == 0) {
         hode = new Node<T>(verdi,h ale, null);
@@ -116,7 +116,7 @@ Det betyr at vi må ha med tester / checks for alle disse tilfellene.\
     Vi oppdaterer deretter *hode* til å være vår nye verdi og vi sørger for at *hale* sin forrige (*nest siste verdi*) sin neste er lik *hale*.
 <br>
 <br>
-- Skal verdien legges bakerst?
+Skal verdien legges bakerst?
   - ```java
     if (indeks == antall) {
         hale = new Node<T>(verdi, node.forrige, null);
@@ -126,7 +126,7 @@ Det betyr at vi må ha med tester / checks for alle disse tilfellene.\
     Her sjekker vi om indeks er lik antall, dvs. at *verdi* skal inn bakerst. Hvis den er det lager vi en ny hale med verdi *verdi* og *forrige* = *hale* og *neste* = null.\
     Vi oppdaterer deretter nest siste indeks (hale.forrige.neste = hale sin forrige (nest siste) sin neste (i dette tilfelle hale)) slik at pekere blir korrekt.\
 <br>
-- Til slutt må vi sjekke om verdien skal legges imellom to andre verdier.
+Til slutt må vi sjekke om verdien skal legges imellom to andre verdier.
   - ```java
     else () {
         for (int i = 0; i < indeks; i++) {

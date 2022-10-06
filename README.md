@@ -27,7 +27,7 @@ Vi kan sjekke om listen er tom ved å se om hode (*første posisjon*) er lik ree
 ```java
 return hode == null;
 ```
-- $\color{orange} DobbeltLenketListe(T [ ] a) $: Dette er konstruktøren vi bruker for å lage en ny instans av klassen DobbeltLenketListe.\
+- $\color{orange} \text{DobbeltLenketListe(T [] a)} $: Dette er konstruktøren vi bruker for å lage en ny instans av klassen DobbeltLenketListe.\
 Den henter verdier fra tabell *a* og putter de inn i en ny dobbelt lenket liste.\
 Den sørger for at verdiene havner i samme posisjon og at det blir deklarert både et $\color{orange} hode$ og en $\color{orange} hale$\
 \
@@ -65,7 +65,7 @@ Vi begynner først med å lage en node, *nodeIndex* som skal funke som en *place
 Ved å så iterere over listen (enten fra hode --> hale, eller hode <-- hale) kan vi sette *nodeIndex* til å være nåværende node helt til vi kommer til riktig indeks.\
 Dette gjelder både ved søk fra hode eller hale, eneste forskjell er om vi bruker **$\color{orange} node.neste $** eller **$\color{orange} node.forrige $**.
 
-Neste metode vi trenger er **$\color{orange} \mathbb{T hent} $**
+Neste metode vi trenger er **$\color{orange} \text{T hent} $**
 
 
 

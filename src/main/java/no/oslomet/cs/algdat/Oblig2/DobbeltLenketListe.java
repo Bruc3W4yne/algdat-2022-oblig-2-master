@@ -231,7 +231,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             hode = new Node<T>(verdi, null, hode);
             hode.neste.forrige = hode;
         } else if (indeks == antall) {
-
             hale = new Node<T>(verdi, hale, null);
             hale.forrige.neste = hale;
         } else {
@@ -240,9 +239,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             for (int i = 0; i < indeks; i++) {
                 node = node.neste;
             }
-
-            node = new Node<T>(verdi, node.forrige, node);
-            node.neste.forrige = node.forrige.neste = node;
+            Node<T> nyNode = new Node<T>(verdi, node.forrige, node);
+            nyNode.neste.forrige = nyNode.forrige.neste = nyNode;
         }
         antall++;
         endringer++;

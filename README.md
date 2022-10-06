@@ -35,12 +35,12 @@ Ved hjelp av en **$\color{orange} for-løkke $** sørger vi også for at vi ikke
 
 ## Oppgave 2
 **Oppgave 2** tar for seg to ulike problemer; \
-Første del av problemet løser vi ved å lage metodene **$\color{orange} String toString $** og **$\color{orange} String omvendtString $** \
+Første del av problemet løser vi ved å lage metodene **$\color{orange} \mathit String toString $** og **$\color{orange} String omvendtString $** \
 Disse sørger for at vi henter ut verdiene i listen for så å returnere de som en tegnstreng, enten i riktig rekkefølge eller baklengs\
 - **$\color{orange} toString $**: Denne metoden benytter seg av en *stringbuilder* **$\color{orange} ts (toString) $** og dens metode **$\color{orange} .append $**\
 Ved hjelp av *stringbuilder* og *node.neste*/*node.forrige* kan vi enkelt traversere igjennom listen (så sant den ikke er tom) og legge til verdien ved nåværende node inn i **$\color{orange} ts $**\
 \
-Det samme gjelder for **$\color{orange} omvendtString $**, bare at vi nå må gå gjennom listen baklengs.\
+Det samme gjelder for **$\color{orange} \mathit omvendtString $**, bare at vi nå må gå gjennom listen baklengs.\
 Dette gjør vi ved å sette nåværende node / *start* node til å være hale istedenfor.\
 Da kan vi enkelt gå bakover ved å benytte oss av *node.forrige* og fortløpende legge til verdiene i **$\color{orange} ts $**
 

@@ -164,31 +164,31 @@ Her er det igjen en liten sjekkliste vi må igjennom før vi kan fjerne verdiene
         }   
     }
     ```
-    Her sjekker vi først om indeks er 0, ergo at det er første verdi som skal fjernes. Vi sjekker så om det er flere verdier i listen eller ikke.\
-    Ved flere verdier setter vi hode til å være lik node til høyre og hode.forrige til å være lik null.\
-  <br>
-- Hvis indeks ikke er lik 0 sjekker vi så om indeks er lik antall - 1, eller da siste verdi. Er den det setter vi node til å være lik hale og verdi til å være verdien til halen.\
+Her sjekker vi først om indeks er 0, ergo at det er første verdi som skal fjernes. Vi sjekker så om det er flere verdier i listen eller ikke.\
+Ved flere verdier setter vi hode til å være lik node til høyre og hode.forrige til å være lik null.\
+<br>
+Hvis indeks ikke er lik 0 sjekker vi så om indeks er lik antall - 1, eller da siste verdi. Er den det setter vi node til å være lik hale og verdi til å være verdien til halen.\
 Vi oppdaterer så pekere til halen på samme måte som ved hode.\
 <br>
-- Hvis indeks hverken er lik 0 eller siste verdi itererer vi over listen helt til vi kommer til riktig posisjon som skal fjernes.\
+Hvis indeks hverken er lik 0 eller siste verdi itererer vi over listen helt til vi kommer til riktig posisjon som skal fjernes.\
 For hver iterasjon hopper vi til neste node.\
 Når vi til slutt når riktig node oppdaterer vi pekere for noden til høyre og noden til venstre til å peke på hverandre istendefor noden vi fjernet. 
-Vi oppdaterer antall og endringer hele veien.\
+Vi oppdaterer antall og endringer hele veien.
 
 Booleanen fjern er mer eller mindre det samme, men denne gangen får vi oppgitt en verdi som skal fjernes istedenfor posisjon.
-- Vi begynner først med å sjekke om verdi er lik **$\color{purple} null $**, og om den er det returnerer vi false. En *null* verdi vil aldri finnes i listen og vi trenger derfor heller ikke lete.\
+Vi begynner først med å sjekke om verdi er lik **$\color{purple} null $**, og om den er det returnerer vi false. En *null* verdi vil aldri finnes i listen og vi trenger derfor heller ikke lete.\
 <br>
-- Deretter sjekker vi om det er første verdi som skal fjernes ved å sjekke om verdi av *hode* er lik oppgitt *verdi*\
+Deretter sjekker vi om det er første verdi som skal fjernes ved å sjekke om verdi av *hode* er lik oppgitt *verdi*\
 Er den det oppdaterer vi pekere på samme måte som ved metoden **$\color{orange} fjern $**.\
 <br>
-- Vi setter så node til å være lik *hale* og sjekker om verdi er like *hale.verdi* er den det vet vi at det er siste verdi som skal fjernes.\
+Vi setter så node til å være lik *hale* og sjekker om verdi er like *hale.verdi* er den det vet vi at det er siste verdi som skal fjernes.\
 Dette gjøres igjen på samme måte som i metoden **$\color{orange} fjern $**.\
 <br>
-- Hvis ingen av de tidligere testene stemmer setter vi node lik hode.neste (da vi allerede har sett at hode ikke har samme verdi) og itererer over listen.\
+Hvis ingen av de tidligere testene stemmer setter vi node lik hode.neste (da vi allerede har sett at hode ikke har samme verdi) og itererer over listen.\
 For hver iterasjon setter vi node til å være like node.neste.\
 Vi utfører deretter en sammenligning for å se om verdi av node er lik *verdi*. Er den det fjerner vi noden på samme måte som i metoden **$\color{orange} fjern $**.\
 <br>
-- Skulle ingenting av dette stemme betyr det at verdien ikke finnes i listen og vi returnerer false.
+Skulle ingenting av dette stemme betyr det at verdien ikke finnes i listen og vi returnerer false.
 
 ## Oppgave 8
 **Oppgave 8** går ut på å lage ulike metoder så vi kan senere bruke de til å itererer over listen uten bruk av vanlig for-løkke.\

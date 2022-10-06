@@ -97,18 +97,13 @@ Her er det et par ting vi må passe på:
 Det betyr at vi må ha med tester / checks for alle disse tilfellene.\
 
 - Vi begynner med å sjekke om listen er tom:
-    - ```java
+    ```java
       if (antall == 0) {
           hode = hale = new Node<T>(verdi, null, null);
       }
-      ```
-      Hvis antall er lik null må det bety at listen ikke har noen verdier ergo er den tom.
+    ```
+- Hvis antall er lik null må det bety at listen ikke har noen verdier ergo er den tom.\
 <br>
-```java
-      if (antall == 0) {
-          hode = hale = new Node<T>(verdi, null, null);
-      }
-```
 Skal verdien legges først?
   ```java
     if (indeks == 0) {

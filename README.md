@@ -60,9 +60,12 @@ Etter dette oppdaterer vi både antall og endringer, da vi har **lagt til** en n
 Det er altså en god del som må gjøres i oppgave 3. Vi begynner med finnNode
 - **$\color{orange} finnNode $**: Denne metoden skal returnere noden ved gitt indeks. Er indeks mindre enn $\{antall\over 2}$ skal vi begynne letingen fra hode og gå mot høyre.\
 Hvis ikke skal vi begynne å lete fra hale og gå bakover, mot venstre!\
+\
 Vi begynner først med å lage en node, *nodeIndex* som skal funke som en *placeholder* noden vi leter etter.\
 Ved å så iterere over listen (enten fra hode --> hale, eller hode <-- hale) kan vi sette *nodeIndex* til å være nåværende node helt til vi kommer til riktig indeks.\
 Dette gjelder både ved søk fra hode eller hale, eneste forskjell er om vi bruker **$\color{orange} node.neste $** eller **$\color{orange} node.forrige $**.
+
+Neste metode vi trenger er **$\color{orange} \mathbb{T hent} $**
 
 
 

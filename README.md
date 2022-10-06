@@ -192,16 +192,16 @@ Vi utfører deretter en sammenligning for å se om verdi av node er lik *verdi*.
 
 ## Oppgave 8
 **Oppgave 8** går ut på å lage ulike metoder så vi kan senere bruke de til å itererer over listen uten bruk av vanlig for-løkke.\
-
-- Vi begynner med å lage **$\color{orange} \text{T next} $**: som er selve "telleren" vår. Denne skal sørge for at vi flytter oss til neste verdi.\
+Vi begynner med å lage **$\color{orange} \text{T next} $**: som er selve "telleren" vår. Denne skal sørge for at vi flytter oss til neste verdi.\
 Vi setter først fjernOK til true for å markere at vi har fjernet en verdi og oppdaterer så pekeren til denne til neste node.
 <br>
-- Etter dette lager vi metoden **$\color{orange} \text{Iterator<T> iterator()} $**: som skal sørge for at vi lager et iteratorobjekt og lager da en instans av iteratorklassen.\
+Etter dette lager vi metoden **$\color{orange} \text{Iterator<T> iterator()} $**: som skal sørge for at vi lager et iteratorobjekt og lager da en instans av iteratorklassen.\
 <br>
-- Vi lager så **$\color{orange} \text{DobbeltLenketListeIterator (int indeks)} $**: som setter pekeren *denne* til noden ved gitt *indeks*, setter fjernOK til false (da vi ikke har fjernet noen verdi), og setter iteratorendringer lik endringer.\
+Vi lager så **$\color{orange} \text{DobbeltLenketListeIterator (int indeks)} $**: som setter pekeren *denne* til noden ved gitt *indeks*, setter fjernOK til false (da vi ikke har fjernet noen verdi), og setter iteratorendringer lik endringer.\
 <br>
-- Til slutt gjennstår bare **$\color{orange} \text{Iterator<T> iterator(int indeks)} $**: Denne returnerer en instans av iteratorklassen og vi kan nå iterere over listen, ved hjelp av i.next()
+Til slutt gjennstår bare **$\color{orange} \text{Iterator<T> iterator(int indeks)} $**: Denne returnerer en instans av iteratorklassen og vi kan nå iterere over listen, ved hjelp av i.next()
 
+#### 
 <footer class="footer">Isak Midtvedt 2022</footer>
 <style>
 .footer {
